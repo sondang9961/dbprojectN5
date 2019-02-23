@@ -1,0 +1,9 @@
+<?php
+	session_start();
+	unset($_SESSION["username"]);
+	unset($_SESSION["idUser"]);
+	unset($_SESSION["phanQuyen"]);
+	$url=$_SESSION["url"];
+	header("Location:../giaoDien/index.php$url");
+	unset($_SESSION["url"]);
+?>
