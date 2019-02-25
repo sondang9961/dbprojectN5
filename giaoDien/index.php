@@ -94,36 +94,37 @@ session_start ();
 		while ($tl=mysqli_fetch_array($resultTheLoai))
 		{
 			$maTheLoai=$tl["maTheLoai"];
-			$resultsltl=mysqli_query($con,"select count(*) as tongBv from (select maBaiViet from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where a.maTheLoai = $maTheLoai and tinhTrangBv=1)b");
+			$resultsltl=mysqli_query($con,"select count(*) as tongBv from (select maBaiViet from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, maTheLoai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where a.maTheLoai = $maTheLoai and tinhTrangBv=1)b");
 		$sltl=mysqli_fetch_array($resultsltl);
 		$demTl=$sltl["tongBv"];
+		//Nếu thể loại chưa có bài viết thì sẽ ko hiện trên thanh menu
 		if($demTl!=0)
 		{
 		?>
         <a href="?pcat=<?php echo($tl["maTheLoai"]) ?>">
-      	<li class="li0">
-	    <img src="<?php echo($tl["anhTheLoai"]) ?>" height="22px"><br>
-        <div><?php echo($tl["tenTheLoai"]); ?></div>
-        <ul>
-          <?php
-				$maTheLoai=$tl["maTheLoai"];
-				$resultTheLoaiCon=mysqli_query($con,"select * from tblTheLoaiCon where maTheLoai=$maTheLoai");
-				while($tlc=mysqli_fetch_array($resultTheLoaiCon))
-				{
-				$maTheLoaiCon=$tlc["maTheLoaiCon"];
-				$resultsltlc=mysqli_query($con,"select count(*) as tongBv1 from tblbaiviet where maTheLoaiCon=$maTheLoaiCon");
-				$sltlc=mysqli_fetch_array($resultsltlc);
-				$demTlc=$sltlc["tongBv1"];
-				if($demTlc!=0)
-				{	
-		  ?>
-          <li class="li1"><a id="a" href="?cat=<?php echo($tlc["maTheLoaiCon"]); ?>"><?php echo($tlc["tenTheLoaiCon"]); ?></a> </li>
-          <?php
-				}
-				}
-			?>
-        </ul>
-      </li>
+	      	<li class="li0">
+		    <img src="<?php echo($tl["anhTheLoai"]) ?>" height="22px"><br>
+	        <div><?php echo($tl["tenTheLoai"]); ?></div>
+	        <ul>
+	          <?php
+					$maTheLoai=$tl["maTheLoai"];
+					$resultTheLoaiCon=mysqli_query($con,"select * from tblTheLoaiCon where maTheLoai=$maTheLoai");
+					while($tlc=mysqli_fetch_array($resultTheLoaiCon))
+					{
+					$maTheLoaiCon=$tlc["maTheLoaiCon"];
+					$resultsltlc=mysqli_query($con,"select count(*) as tongBv1 from tblbaiviet where maTheLoaiCon=$maTheLoaiCon");
+					$sltlc=mysqli_fetch_array($resultsltlc);
+					$demTlc=$sltlc["tongBv1"];
+					if($demTlc!=0)
+					{	
+			  ?>
+	          <li class="li1"><a id="a" href="?cat=<?php echo($tlc["maTheLoaiCon"]); ?>"><?php echo($tlc["tenTheLoaiCon"]); ?></a> </li>
+	          <?php
+					}
+					}
+				?>
+	        </ul>
+	      </li>
       </a>
       <?php
 		}
@@ -134,7 +135,7 @@ session_start ();
   </div>
   <form id="form" >
     <button type="button" id="searchButton" onclick="validateSearch()"><img src="../Images/585e4ae1cb11b227491c3393.png" height="20px" width="20px" /></button>
-    <input type="search" id="searchBox" name="txtSearch" placeholder="Tên bài viết hoặc mô tả ..." height="30px" <?php if (isset($_GET["txtSearch"])) echo $_GET["txtSearch"]; ?>  />
+    <input type="search" id="searchBox" name="txtSearch" placeholder="Tên bài viết hoặc mô tả ..." height="30px" value="<?php if (isset($_GET["txtSearch"])) echo $_GET["txtSearch"]; ?>"  />
   </form>
 </div>
 <div id="content">

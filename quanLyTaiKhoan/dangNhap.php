@@ -4,7 +4,7 @@
 	{
 		//Da dang nhap thi vao luon trang chu
 		header("Location:../giaoDien/index.php");
-		if($_SESSION["phanQuyen"]==1 || $_SESSION["phanQuyen"]==2 || $_SESSION["phanQuyen"]==3)
+		if($_SESSION["phanQuyen"]>0)
 		{
 			include ("../admin/quanLy.php");
 		}
@@ -40,14 +40,6 @@
 			</script>
 <?php
 		}	
-		 if($err==3)
-		{
-?>
-			<script type="text/javascript">
-				alert("Bạn phải điền username và pass!");
-			</script>
-<?php
-		}
 	}
 	if($_GET["dn"]==2)
 	{
@@ -110,7 +102,7 @@ if(isset($_GET["mk"]))
 		//validate
 		if(username.length==0)
 		{
-			errUser.innerHTML="Không được để trống!";	
+			errUser.innerHTML="Bạn chưa nhập Username!";	
 		}else
 		{
 			errUser.innerHTML="";
@@ -118,7 +110,7 @@ if(isset($_GET["mk"]))
 		}
 		if(pass.length==0)
 		{
-			errPass.innerHTML="Không được để trống!";	
+			errPass.innerHTML="Bạn chưa nhập Password!";	
 		}else
 		{
 			errPass.innerHTML="";

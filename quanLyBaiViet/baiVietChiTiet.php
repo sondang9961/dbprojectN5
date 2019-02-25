@@ -68,21 +68,25 @@ if(isset($_GET["id"]))
 				if (isset($_SESSION["username"]))
 				{
 				?>	
-					<input type="button" id="binhLuan1" value="Gửi bình luận" formaction="../quanLyBaiViet/binhLuanProcess.php" onclick="binhLuan()" />
+					<input type="button" id="binhLuan" value="Gửi bình luận" formaction="../quanLyBaiViet/binhLuanProcess.php" onclick="valbinhLuan()" />
 					<?php
 						$maUser=$_SESSION["idUser"];
 						$resultBvl=mysqli_query($con,"select * from tblbaivietduocluu where maBaiViet=$maBaiViet and maUser=$maUser");
 						$bvl=mysqli_fetch_array($resultBvl);
 						$soBvl=mysqli_num_rows($resultBvl);
+					//Kiểm tra xem bài viết này đã đc lưu chưa
 					if($soBvl==1)
+					//nếu đã lưu rồi
 						{
 							$mabvl=$bvl["maBaiVietDuocLuu"];
 					?>
+					<!--Hiện nút bỏ lưu -->
 						<input type="button" value="Bỏ Lưu" onclick="location.href='../quanLyBaiViet/xoaBaiVietDaLuuProcess.php?idBvl=<?php echo($mabvl); ?>&id=<?php echo($maBaiViet); ?>'" >
 					<?php
 						}else
 						{
 					?>
+					<!-- chưa thì hiện nút lưu-->
 					 <input type="button" id="luuBv" onclick="luu()" value="Lưu" formaction="../quanLyBaiViet/luuBvProcess.php"/>
 					<?php
 						}
@@ -96,7 +100,6 @@ if(isset($_GET["id"]))
 			</tr>
             </a>
 	</table>
-   
 	</form>
     <?php
 	if(isset($_SESSION["username"]))
@@ -170,7 +173,7 @@ if(isset($_GET["id"]))
 </body>
 </html>
 <script type="text/javascript">
-	function binhLuan()
+	function valbinhLuan()
 	{
 		var dem=0;
 		var comment=document.getElementById("txtComment").value;
@@ -185,7 +188,7 @@ if(isset($_GET["id"]))
 		}
 		if (dem==1)
 		{
-			document.getElementById("binhLuan1").type = "submit";
+			document.getElementById("binhLuan").type = "submit";
 		}
 	}
 	function luu(){

@@ -29,7 +29,7 @@
 		$moTa=$_GET["txtSearch"];
 		$moTa = str_replace('"','&quot;',$moTa);
         $moTa = str_replace("'","''",$moTa);
-		$sql = "select count(*) as tongBv from (select maBaiViet from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, from_base64(tenBaiViet) as tenBaiViet, anh, moTa, maTheLoai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where tenBaiViet like '%$tenBaiViet%' or moTa like '%$moTa%' and tinhTrangBv=1)b";
+		$sql = "select count(*) as tongBv from (select maBaiViet from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where tenBaiViet like '%$tenBaiViet%' or moTa like '%$moTa%' and tinhTrangBv=1)b";
 		$resultTongBv=mysqli_query($con,$sql);
 		$_SESSION["url"]="?txtSearch=$tenBaiViet";
 	}

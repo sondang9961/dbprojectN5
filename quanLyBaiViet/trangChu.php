@@ -49,16 +49,17 @@
                 <td valign="top"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><img src="<?php echo ($bv["anh"]); ?>" height="150px" width="150px" /></a></td>
                 <td valign="top">
                 	<table>
-                    	<tr>
-                            <td valign="top" height="108px"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><?php echo $bv["moTa"]; ?></a></td>
-                        </tr>
-                        <tr>
-                            <td><a href='?cat=<?php echo($bv["maTheLoaiCon"]);?>' id="a7"><?php echo ($bv["tenTheLoaiCon"]); ?></a></td>
-                        </tr>
-						<tr>
-                        	<td align="right" style="color:#999; font-size:12px"><?php echo($bv["ngayDangBai"]); ?></td>
-                        </tr>
-                    </tr></table></td>
+                    <tr>
+                      <td valign="top" height="108px"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><?php echo $bv["moTa"]; ?></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href='?cat=<?php echo($bv["maTheLoaiCon"]);?>' id="a7"><?php echo ($bv["tenTheLoaiCon"]); ?></a></td>
+                    </tr>
+						        <tr>
+                      <td align="right" style="color:#999; font-size:12px"><?php echo($bv["ngayDangBai"]); ?></td>
+                    </tr>
+                  </table>
+                </td>
               </tr>
             </table></td>
           <?php
