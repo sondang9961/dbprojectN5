@@ -26,8 +26,8 @@
             <td><input type="submit" value="Tìm" /></td>
         </tr>
         <tr align="center">
-            <td><?php if(isset($_GET["ngayBatDau"])) $ngayBatDau=$_GET["ngayBatDau"]; echo($ngayBatDau); ?></td>
-            <td><?php if(isset($_GET["ngayKetThuc"])) $ngayKetThuc=$_GET["ngayKetThuc"]; echo($ngayKetThuc);?></td>
+            <td><?php if(isset($_GET["ngayBatDau"])) { $ngayBatDau=$_GET["ngayBatDau"]; echo($ngayBatDau); }?></td>
+            <td><?php if(isset($_GET["ngayKetThuc"])) { $ngayKetThuc=$_GET["ngayKetThuc"]; echo($ngayKetThuc); }?></td>
         </tr>
         </table>
     <br /><br />
@@ -38,7 +38,7 @@
         include ("../Connectdb/open.php");
         $ngayBatDau=$_GET["ngayBatDau"];
         $ngayKetThuc=$_GET["ngayKetThuc"];
-        $resultThongKe=mysqli_query($con,"select COUNT(*) as thongKe from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where ngayDangBai BETWEEN '$ngayBatDau' AND '$ngayKetThuc'");
+        $resultThongKe=mysqli_query($con,"select COUNT(*) as thongKe from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where ngayDangBai BETWEEN '$ngayBatDau' AND '$ngayKetThuc order by luotXem desc'");
         $start=0;
         $page=1;
         $soBv1Trang=8;
@@ -53,6 +53,9 @@
         $tongSoTrang=ceil($tongBv/$soBv1Trang);    
         $_SESSION["urladmin"]="&page=$page";
         $result=mysqli_query($con,"select * from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where ngayDangBai BETWEEN '$ngayBatDau' AND '$ngayKetThuc' ORDER BY luotXem DESC limit $start, $soBv1Trang");
+        $dem=mysqli_num_rows($result);
+        if($dem!=0)
+        {
     ?>
        	<table border="1" cellspacing="0">
         	<tr>
@@ -81,10 +84,11 @@
             </tr>
     <?php
         }
-    }
     ?>
         </table>
     <?php
+        }else echo "<center><h2>Không tìm thấy kết quả</h2></center>";
+    }
     $urladmin ="";
     if(isset($ngayBatDau) && isset($ngayKetThuc)) $urladmin .= "&ngayBatDau=$ngayBatDau&ngayKetThuc=$ngayKetThuc";
     $_SESSION["urladmin"] .= $urladmin;
