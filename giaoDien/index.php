@@ -249,7 +249,7 @@ session_start ();
             <td height="30px" style="vertical-align:top; padding-top:0px; font-size:20px; font-weight:bold"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>" style="text-decoration:none; color:#000000"><?php echo $tnb["tenBaiViet"] ;?></a></td>
           </tr>
           <tr>
-            <td valign="top" style=" vertical-align:top;padding-top:2px;text-align: justify"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>"><?php echo $tnb["moTa"] ;?></a></td>
+            <td valign="top" style=" vertical-align:top;padding-top:2px;text-align: justify"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>"><?php echo substr($tnb["moTa"],0,109)."...";?></a></td>
           </tr>
         </table></td>
     </tr>

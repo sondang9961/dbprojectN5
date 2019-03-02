@@ -13,7 +13,7 @@
 
 <body>
 <center>
-	<h1>Thống kê</h1>
+	<h1>Thống kê lượt xem bài đăng theo tháng</h1>
 </center>
 <form>
     <table>
@@ -21,8 +21,8 @@
             <td><input type="hidden" name="thongKe"></td>
         </tr>
         <tr>
-            <td>Từ: <input type="datetime-local" name="ngayBatDau"  /> </td>
-            <td>Đến: <input type="datetime-local" name="ngayKetThuc" /> </td>
+            <td>Từ: <input type="date" name="ngayBatDau"  /> </td>
+            <td>Đến: <input type="date" name="ngayKetThuc" /> </td>
             <td><input type="submit" value="Tìm" /></td>
         </tr>
         <tr align="center">
