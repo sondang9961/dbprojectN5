@@ -60,9 +60,9 @@
             <td><textarea cols="21" rows="8" id="txtdiachi" name="txtdiachi"><?php echo($user["diaChi"]); ?></textarea></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input type="button" value="Cập nhật" onclick="validate()"/>
+            <td colspan="2" align="center"><input type="button" value="Cập nhật" onclick="validate()" class="confirmbt"/>
               <?php $url=$_SESSION["url"]; ?>
-              <button type="button" <?php if(isset($_GET["ad"])){?>onclick="location.href='../admin/quanLy.php?dsbv'" <?php } ?> onclick="location.href='../giaoDien/index.php<?php echo($url); ?>'" >Quay lại</button></td>
+              <button type="button" <?php if(isset($_GET["ad"])){?>onclick="location.href='../admin/quanLy.php?dsbv'" <?php } ?> onclick="location.href='../giaoDien/index.php<?php echo($url); ?>'" style="cursor: pointer;">Quay lại</button></td>
           </tr>
         </table>
         </form>
@@ -81,7 +81,7 @@
 		var errEmail=document.getElementById("errEmail");	
 		//3
 		var regEmail=/^[a-zA-Z]+[a-zA-Z0-9_.]*@[a-zA-Z]+\.?[a-zA-Z]{2,3}\.[a-zA-Z]{2,3}$/;
-		var regTen= /^[0-9]*[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+$/;
+		var regTen= /^[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+$/;
 		//validate
 		//ten
 		if(ten.length==0)
@@ -97,7 +97,7 @@
 				dem++;
 			}
 			else
-				errTen.innerHTML="Bạn phải nhập chữ!";
+				errTen.innerHTML="Nhập đầy đủ họ tên";
 		}
 		//Email
 		if(email.length==0)
@@ -112,7 +112,7 @@
 				dem++;
 			}
 			else
-				errEmail.innerHTML="Bạn phải nhập đúng email!";
+				errEmail.innerHTML="Bạn phải nhập đúng email";
 		}
 	if (dem==2)
 		{

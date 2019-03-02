@@ -47,7 +47,7 @@
 					if($_SESSION["phanQuyen"]>1) 
 					{
 	?>
-						<td><button type="button" onClick="location.href='chinhSuaTheLoai.php?pcat=<?php echo($maTheLoai); ?>'">Chỉnh Sửa</button></td>
+						<td height="28px"><button type="button" onClick="location.href='chinhSuaTheLoai.php?pcat=<?php echo($maTheLoai); ?>'">Chỉnh Sửa</button></td>
  						<td>
  	<?php
 						if ($sltl['tongBv']==0)

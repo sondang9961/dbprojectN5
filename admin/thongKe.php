@@ -87,7 +87,7 @@
     ?>
         </table>
     <?php
-        }else echo "<center><h2>Không tìm thấy kết quả</h2></center>";
+        }else echo "<center><h2>Không có bài đăng trong tháng này</h2></center>";
     }
     $urladmin ="";
     if(isset($ngayBatDau) && isset($ngayKetThuc)) $urladmin .= "&ngayBatDau=$ngayBatDau&ngayKetThuc=$ngayKetThuc";

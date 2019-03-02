@@ -60,7 +60,7 @@
 					dem++;
 				}
 				else 
-				errUser.innerHTML="Username phải bao gồm cả số !";
+				errUser.innerHTML="Không đúng định dạng!";
 			}
 		//pass
 		if(pass.length==0)
@@ -117,7 +117,7 @@
 				dem++;
 			}
 			else
-				errTen.innerHTML="Không đúng định dạng";
+				errTen.innerHTML="Nhập đầy đủ họ tên";
 		}
 		if(dem==5)
 		{
@@ -134,40 +134,44 @@
 	<form id="frm" method="post" action="../quanLyTaiKhoan/dangKyProcess.php">
 		<table>
         	<tr>
-				<td colspan="2" align="center"><h1>Đăng Ký</h1></td>
+				<td colspan="2"><h1>Đăng Ký</h1></td>
 			</tr>
 			<tr>
-				<td>Username:</td>
-				<td> <input type="text" id="txtuser" name="txtuser"></td>
-                <td width="50%"><span id="errUser" class="err"></span></td>
+				<td style="padding-right: 12px">Username:<br>
+					<input type="text" id="txtuser" name="txtuser" placeholder="Ví dụ: abc123...">
+				</td>
+                <td width="63%"><br><span id="errUser" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
-				<td> <input type="password" id="txtpass" name="txtpass"></td>
-                <td><span id="errPass" class="err"></span></td>
+				<td>Password:<br>
+					<input type="password" id="txtpass" name="txtpass">
+				</td>
+                <td><br><span id="errPass" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Nhập lại:</td>
-				<td> <input type="password" id="txtNhapLai"  ></td>
-                <td><span id="errNhapLai" class="err"></span></td>
+				<td>Nhập lại:<br>
+					<input type="password" id="txtNhapLai"  >
+				</td>
+                <td><br><span id="errNhapLai" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Email:</td>
-				<td> <input type="email" id="txtemail" name="txtemail"></td>
-                <td><span id="errEmail" class="err"></span></td>
+				<td>Email:<br>
+					<input type="email" id="txtemail" name="txtemail" placeholder="Ví dụ: abc123@gmail.com...">
+				</td>
+                <td><br><span id="errEmail" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Tên hiển thị:</td>
-				<td> <input type="text" id="txtten" name="txtten"></td>
-                <td><span id="errTen" class="err"></span></td>
+				<td>Tên hiển thị:<br>
+					<input type="text" id="txtten" name="txtten" placeholder="Ví dụ: Nguyen Van abc...">
+				</td>
+                <td><br><span id="errTen" class="err"></span></td>
 			</tr>
 			<tr>
-				<td align="right">
-                   <input type="button" onClick="validate()" value="Đăng ký"> 
-                </td>
-                <td>
-                   <input type="reset">
-                   <button type="button" onClick="location.href='../giaoDien/index.php'"> Quay lại</button>
+				<td colspan="2">
+                   <input type="button" onClick="validate()" value="Đăng ký" class="confirmbt"> 
+                   <input type="reset" style="cursor: pointer">
+                   <button type="button" onClick="location.href='../giaoDien/index.php'" style="cursor: pointer"> Quay lại</button><br>
+                   <a href="?dn" style="color:blue">Đã có tài khoản, đăng nhập?</a><br>
                 </td>
 			</tr>
 		</table><br>

@@ -66,25 +66,30 @@ if(isset($_GET["mk"]))
 	<form id="frm" action="../quanLyTaiKhoan/dangNhapProcess.php" method="post">
 		<table>
 			<tr>
-				<td colspan="2" align="center"><h1>Login</h1></td>
+				<td colspan="2"><h1>Login</h1></td>
 			</tr>
 			<tr>
-				<td>Username:</td>
-				<td><input type="text" name="txtuser" id="txtuser" /></td>
-                <td width="60%"><span id="errUser" class="err" ></span></td>
+				<td>Username:<br>
+					<input type="text" name="txtuser" id="txtuser" />
+				</td>
+                <td width="65%"><br><span id="errUser" class="err" ></span></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="txtpass" id="txtpass" /></td>
-                <td><span id="errPass" class="err" ></span></td>
+				<td>Password:<br>
+					<input type="password" name="txtpass" id="txtpass" />
+				</td>
+                <td><br><span id="errPass" class="err" ></span></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center">
-                <input type="button" onclick="validateDn()" value="Đăng nhập"/> 
-                <input type="button" onclick="location.href='../giaoDien/index.php'" value="Quay lại" /></td>
+				<td colspan="2">
+                <input type="button" onclick="validateDn()" value="Đăng nhập" class="confirmbt"/> 
+                <input type="button" onclick="location.href='../giaoDien/index.php'" value="Quay lại" style="cursor: pointer" /></td>
 			</tr>
             <tr>
-            	<td colspan="2" align="center"><a href="?llmk" style="color:blue">Quên mật khẩu?</a></td>
+            	<td colspan="2" >
+            		<a href="?dk" style="color:blue">Chưa có tài khoản?</a><br>
+            		<a href="?llmk" style="color:blue">Quên mật khẩu?</a>  
+            	</td>
             </tr>
 		</table>
 	</form>

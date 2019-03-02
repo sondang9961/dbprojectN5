@@ -24,20 +24,23 @@ if(isset($_GET["err"]))
 	<form id="frm" method="post" action="../quanLyTaiKhoan/layLaiMatKhauProcess.php">
 		<table>
 			<tr>
-				<td colspan="2" align="center"><h1>Lấy lại mật khẩu</h1></td>
+				<td colspan="2"><h1>Lấy lại mật khẩu</h1></td>
 			</tr>
 			<tr>
-				<td>Username:</td>
-				<td><input type="text" name="txtuser" id="txtuser" /></td>
-                <td width="60%"><span id="errUser" class="err" ></span></td>
+				<td>Username:<br>
+					<input type="text" name="txtuser" id="txtuser" /></td>
+                <td width="60%"><br><span id="errUser" class="err" ></span></td>
 			</tr>
 			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="txtemail" id="txtemail" /></td>
-                <td><span id="errEmail" class="err" ></span></td>
+				<td>Email:<br>
+					<input type="text" name="txtemail" id="txtemail" /></td>
+                <td><br><span id="errEmail" class="err" ></span></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="button" onclick="validate()" value="Lấy lại mật khẩu"/> <input type="button" onclick="location.href='../giaoDien/index.php?dn'" value="Quay lại" /></td>
+				<td colspan="2">
+					<input type="button" onclick="validate()" value="Lấy lại mật khẩu" class="confirmbt"/>
+					<input type="button" onclick="location.href='../giaoDien/index.php?dn'" value="Quay lại" />
+				</td>
 		</table>
 	</form>
    </div>

@@ -24,24 +24,25 @@
 	<form method="post" id="frm" action="../quanLyTaiKhoan/doiMatKhauProcess.php">
 	<table>
 		<tr>
-			<td>Nhập mật khẩu cũ:</td>
-			<td><input type="password" id="txtpass" name="txtpass" /></td>
-			<td style="position:fixed"><span id="errPass" class="err"></span></td>
-		</tr>
-		<tr>
-			<td>Mật khẩu mới:</td>
-			<td><input type="password" id="txtNewPass" name="txtNewPass" /></td>
-			<td style="position:fixed"><span id="errNewPass" class="err"></span></td>
-		</tr>
-		<tr>
-			<td>Nhập lại mật khẩu mới:</td>
-			<td><input type="password" id="txtNhapLai" /></td>
-			<td style="position:fixed"><span id="errNhapLai" class="err"></span></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<input type="button" value="Đổi mật khẩu" onclick="validate()" />
+			<td><b>Nhập mật khẩu cũ:</b><br>
+				<input type="password" id="txtpass" name="txtpass" />
 			</td>
+			<td style="position:fixed"><br><span id="errPass" class="err"></span></td>
+		</tr>
+		<tr>
+			<td><b>Mật khẩu mới:</b><br>
+				<input type="password" id="txtNewPass" name="txtNewPass" /></td>
+			<td style="position:fixed"><br><span id="errNewPass" class="err"></span></td>
+		</tr>
+		<tr>
+			<td><b>Nhập lại mật khẩu mới:</b><br>
+				<input type="password" id="txtNhapLai" /></td>
+			<td style="position:fixed"><br><span id="errNhapLai" class="err"></span></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="Đổi mật khẩu" onclick="validate()" class="confirmbt"/>
+			</td> 
 		</tr>
 	</table>
 	</form>
