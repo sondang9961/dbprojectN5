@@ -50,7 +50,7 @@
                 <td valign="top">
                 	<table>
                     <tr>
-                      <td valign="top" height="108px"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><?php echo $bv["moTa"]; ?></a></td>
+                      <td valign="top" height="108px" style="text-align: justify"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><?php echo $bv["moTa"]; ?></a></td>
                     </tr>
                     <tr>
                       <td><a href='?cat=<?php echo($bv["maTheLoaiCon"]);?>' id="a7"><?php echo ($bv["tenTheLoaiCon"]); ?></a></td>

@@ -98,7 +98,7 @@ if(isset($_GET["id"]))
 				?>
 				</td>
 			</tr>
-            </a>
+        </a>
 	</table>
 	</form>
     <?php
