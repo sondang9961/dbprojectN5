@@ -137,31 +137,31 @@
 				<td colspan="2"><h1>Đăng Ký</h1></td>
 			</tr>
 			<tr>
-				<td style="padding-right: 12px">Username:<br>
+				<td style="padding-right: 12px"><b>Username:</b><br>
 					<input type="text" id="txtuser" name="txtuser" placeholder="Ví dụ: abc123...">
 				</td>
                 <td width="63%"><br><span id="errUser" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Password:<br>
+				<td><b>Password:</b><br>
 					<input type="password" id="txtpass" name="txtpass">
 				</td>
                 <td><br><span id="errPass" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Nhập lại:<br>
+				<td><b>Nhập lại:</b><br>
 					<input type="password" id="txtNhapLai"  >
 				</td>
                 <td><br><span id="errNhapLai" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Email:<br>
+				<td><b>Email:</b><br>
 					<input type="email" id="txtemail" name="txtemail" placeholder="Ví dụ: abc123@gmail.com...">
 				</td>
                 <td><br><span id="errEmail" class="err"></span></td>
 			</tr>
 			<tr>
-				<td>Tên hiển thị:<br>
+				<td><b>Tên hiển thị:</b><br>
 					<input type="text" id="txtten" name="txtten" placeholder="Ví dụ: Nguyen Van abc...">
 				</td>
                 <td><br><span id="errTen" class="err"></span></td>

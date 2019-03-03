@@ -39,7 +39,7 @@
 						<?php echo $hdbl["tenBaiViet"] ;?>
 					</a></b><br />
 					Bạn đã bình luận: <b><?php echo ($hdbl["noiDungComment"]); ?></b><br />
-					<font size="2px"><i><?php echo ($hdbl["ngayComment"]); ?> </i></font>  <a href="../quanLyBaiViet/xoaBinhLuanProcess.php?maComment=<?php echo($hdbl["maComment"]); ?>">Xóa</a>
+					<font size="2px"><i><?php echo ($hdbl["ngayComment"]); ?> </i></font>  <a href="../quanLyBaiViet/xoaBinhLuanProcess.php?maComment=<?php echo($hdbl["maComment"]); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
 				</div>
 			<?php
 			}

@@ -69,13 +69,13 @@ if(isset($_GET["mk"]))
 				<td colspan="2"><h1>Login</h1></td>
 			</tr>
 			<tr>
-				<td>Username:<br>
+				<td><b>Username:</b><br>
 					<input type="text" name="txtuser" id="txtuser" />
 				</td>
                 <td width="65%"><br><span id="errUser" class="err" ></span></td>
 			</tr>
 			<tr>
-				<td>Password:<br>
+				<td><b>Password:</b><br>
 					<input type="password" name="txtpass" id="txtpass" />
 				</td>
                 <td><br><span id="errPass" class="err" ></span></td>

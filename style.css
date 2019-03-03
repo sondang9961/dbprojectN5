@@ -126,9 +126,11 @@ ul .li1:hover {
 }
 #searchBox {
 	float: right;
-	margin-top: -2.15%;
+	margin-top: -2.55%;
 	margin-right:2.35%;
 	border: #999999 thin solid;
+	height: 28px;
+	width: 200px
 }
 #content {
 	height: auto;

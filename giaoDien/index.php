@@ -135,7 +135,7 @@ session_start ();
   </div>
   <form id="form" >
     <button type="button" id="searchButton" onclick="validateSearch()"><img src="../Images/585e4ae1cb11b227491c3393.png" height="20px" width="20px" /></button>
-    <input type="search" id="searchBox" name="txtSearch" placeholder="Tên bài viết hoặc mô tả ..." height="30px" value="<?php if (isset($_GET["txtSearch"])) echo $_GET["txtSearch"]; ?>"  />
+    <input type="search" id="searchBox" name="txtSearch" placeholder="Tên bài viết hoặc mô tả ..." value="<?php if (isset($_GET["txtSearch"])) echo $_GET["txtSearch"]; ?>"  />
   </form>
 </div>
 <div id="content">

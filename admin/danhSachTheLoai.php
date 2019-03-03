@@ -53,13 +53,13 @@
 						if ($sltl['tongBv']==0)
 						{
 	?>
-							<button type="button" onClick="if(confirm('Bạn có chắc chắn muốn xóa!'))location.href='xoaTheLoaiProcess.php?pcat=<?php echo($maTheLoai); ?>'">Xóa</button>
+							<button type="button" style="height: 36px" onClick="if(confirm('Bạn có chắc chắn muốn xóa!'))location.href='xoaTheLoaiProcess.php?pcat=<?php echo($maTheLoai); ?>'">Xóa</button>
 	<?php
 						}
 						else
 						{
 	?>
-							<button type="button" onClick="xoa()">Xóa</button>
+							<button type="button" style="height: 36px" onClick="xoa()">Xóa</button>
 							<script>
 								function xoa()
 								{
@@ -107,13 +107,13 @@
 						if ($sltlc['tongBv']==0)
 						{
 	?>
-                			<button type="button" onClick="if(confirm('Bạn có chắc chắn muốn xóa!'))location.href='xoaTheLoaiConProcess.php?cat=<?php echo($maTheLoaiCon); ?>'">Xóa</button>
+                			<button type="button" style="height: 36px" onClick="if(confirm('Bạn có chắc chắn muốn xóa!'))location.href='xoaTheLoaiConProcess.php?cat=<?php echo($maTheLoaiCon); ?>'">Xóa</button>
 	<?php
 						}
 						else
 						{
 	?>
-							<button type="button" onClick="xoaTlc()">Xóa</button>
+							<button type="button" style="height: 36px" onClick="xoaTlc()">Xóa</button>
 							<script>
 								function xoaTlc()
 							{
