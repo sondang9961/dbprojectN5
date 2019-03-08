@@ -61,81 +61,86 @@
 	</tr>
     </a>
 	</table>
-    <table style="margin-left:100px; margin-top:100px; ">
-		<tr>
-        	<td>Trang: </td>
-           <?php
-		if($page > 1)
-		{
-			$i = $page - 1;
-	?>
-			<td><button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">Prev</button></td>
 	<?php
-		}
-		if($page <= 2) $startpage = 1;
-		else if($page == $tongSoTrang) $startpage = $page - 4;
-		else if($page == $tongSoTrang - 1) $startpage = $page - 3;
-		else $startpage = $page - 2;
-		$endpage = $startpage + 4;
-		if($tongSoTrang > 5)
-		{
-		for ($i=$startpage; $i <= $endpage; $i++)
-			{
+	if(isset($tongSoTrang) && $tongSoTrang>1)
+    {
 	?>
-				<td>
-                    <button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">
-                        <?php echo ($i); ?>
-                    </button>
-				</td>
+	    <table style="margin-left:100px; margin-top:100px; ">
+			<tr>
+	        	<td>Trang: </td>
+	<?php
+			if($page > 1)
+			{
+				$i = $page - 1;
+	?>
+				<td><button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">Prev</button></td>
 	<?php
 			}
-		}
-		else
-		{
-		for ($i=1; $i <= $tongSoTrang; $i++)
+			if($page <= 2) $startpage = 1;
+			else if($page == $tongSoTrang) $startpage = $page - 4;
+			else if($page == $tongSoTrang - 1) $startpage = $page - 3;
+			else $startpage = $page - 2;
+			$endpage = $startpage + 4;
+			if($tongSoTrang > 5)
 			{
+			for ($i=$startpage; $i <= $endpage; $i++)
+				{
 	?>
-				<td>
-                    <button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">
-                        <?php echo ($i); ?>
-                    </button>
-				</td>
+					<td>
+	                    <button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">
+	                        <?php echo ($i); ?>
+	                    </button>
+					</td>
 	<?php
+				}
 			}
-		}
-			if($page < $tongSoTrang)
+			else
 			{
-			$i = $page + 1;
+			for ($i=1; $i <= $tongSoTrang; $i++)
+				{
 	?>
-			<td><button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">Next</button></td>
+					<td>
+	                    <button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">
+	                        <?php echo ($i); ?>
+	                    </button>
+					</td>
+	<?php
+				}
+			}
+				if($page < $tongSoTrang)
+				{
+				$i = $page + 1;
+	?>
+				<td><button type="button" onClick="location.href='<?php echo("?bvl&page=$i"); ?>'">Next</button></td>
 
 	<?php
-			}
+				}
 	?>
-		</tr>
-	</table>
-	<table style="margin-left:100px; margin-top:1px; ">
-		<tr>
-			<form>
-				<td>
-					<input type="hidden" name="bvl" />
-					<select name="page">
-					<?php
-						for($i=1; $i <= $tongSoTrang; $i++)
-						{
-					?>
-							<option value="<?php echo($i); ?>"<?php if($page==$i) { ?>selected="selected"<?php } ?>><?php echo($i); ?></option>
-					<?php
-						}
-					?>
-					</select>
-				</td>
-				<td><input type="submit" value="Sang trang"</td>
-			</form>
-		</tr>
-	</table>
-    </div>
+			</tr>
+		</table>
+		<table style="margin-left:100px; margin-top:1px; ">
+			<tr>
+				<form>
+					<td>
+						<input type="hidden" name="bvl" />
+						<select name="page">
 	<?php
+							for($i=1; $i <= $tongSoTrang; $i++)
+							{
+	?>
+								<option value="<?php echo($i); ?>"<?php if($page==$i) { ?>selected="selected"<?php } ?>><?php echo($i); ?></option>
+	<?php
+							}
+	?>
+						</select>
+					</td>
+					<td><input type="submit" value="Sang trang"</td>
+				</form>
+			</tr>
+		</table>
+		</div>
+	<?php
+		}
 	}
 	else 
 	{
