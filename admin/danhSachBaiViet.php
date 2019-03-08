@@ -8,13 +8,7 @@
 <head>
 <meta charset="utf-8">
 <title>Trang quản trị</title>
-<script type="text/javascript">
-	function Alert()
-	{
-		alert ("Bạn không thể chỉnh sửa hoặc xóa vì bài viết đã duyệt!");
-	}
-</script>
-	<link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG"  />
+<link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG"  />
 </head>
 
 <body>
@@ -57,8 +51,7 @@
 		</select>
 		<input type="submit" value="Tìm Kiếm">
 		<button type="button" onclick="location.href='?dsbv'">Hiện tất cả</button>
-	 </form> <br>
-	
+	 </form> <br>	
 	<?php
 		include("../Connectdb/open.php");
 		$maUser=$_SESSION["idUser"];
@@ -184,14 +177,14 @@
 			<th><button type="button" onClick="window.open('../giaoDien/index.php?id=<?php echo($bv["maBaiViet"]); ?>','_blank')" style="height:51px">Xem Nội Dung</button></th>
 			<th>
 				<?php if ($_SESSION["phanQuyen"]==1 && $bv["tinhTrangBv"]==1) { ?>
-					<button type="button" onClick="Alert()" style="height:51px">Chỉnh Sửa</button> 
+					<button type="button" onClick="return confirm('Bạn không thể chỉnh sửa vì bài viết đã duyệt!')" style="height:51px">Chỉnh Sửa</button> 
 				<?php } else { ?>
 					<button type="button" onClick="location.href='chinhSuaBaiViet.php?id=<?php echo($bv["maBaiViet"]); ?>'" style="height:51px">Chỉnh Sửa</button> 
 				<?php } ?>
 			</th>
 			<th>
 				<?php if ($_SESSION["phanQuyen"]==1 && $bv["tinhTrangBv"]==1) { ?>
-					<button type="button" onClick="Alert()" style="height:51px">Xóa</button> 
+					<button type="button" onClick="return confirm('Bạn không thể xóa vì bài viết đã duyệt!')" style="height:51px">Xóa</button> 
 				<?php } else { ?>
 					<button type="button" onClick="if(confirm('Bạn có chắc chắn muốn xóa!'))location.href='xoaBaiVietProcess.php?id=<?php echo($bv["maBaiViet"]); ?>'" style="height:51px">Xóa</button> 
 				<?php } ?>

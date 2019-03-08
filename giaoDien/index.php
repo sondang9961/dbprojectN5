@@ -233,7 +233,7 @@ session_start ();
   </div>
   <?php
 				include ("../Connectdb/open.php");
-				$resultNb=mysqli_query($con,"select * from tblbaiviet where tinhTrangBv=1 order by luotXem desc limit 3");
+				$resultNb=mysqli_query($con,"select * from tblbaiviet where tinhTrangBv=1 order by luotXem desc limit 5");
 				?>
   <table>
     <?php

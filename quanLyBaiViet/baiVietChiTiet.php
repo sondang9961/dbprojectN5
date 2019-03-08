@@ -11,7 +11,7 @@ if(isset($_GET["id"]))
 {
 	include ("../Connectdb/open.php");
 	$maBaiViet=$_GET["id"];
-	$result=mysqli_query($con,"select * from tblBaiViet inner join tbluser on tblbaiviet.maUser=tbluser.maUser where maBaiViet=$maBaiViet");
+	$result=mysqli_query($con,"select tblbaiviet.tenBaiViet, ngayDangBai, moTa, tblbaiviet.noiDung, tblbaiviet.tinhTrangBv, luotXem, anh,tbltheloaicon.maTheLoaiCon , tenTheLoaiCon, tbluser.tenUser from tblBaiViet inner join tbluser on tblbaiviet.maUser=tbluser.maUser LEFT join tbltheloaicon ON tblbaiviet.maTheLoaiCon=tbltheloaicon.maTheLoaiCon where maBaiViet=$maBaiViet ");
 	$_SESSION["url"]="?id=$maBaiViet";
 	$bv=mysqli_fetch_array($result);
 	if($bv["tinhTrangBv"]==1)
@@ -22,19 +22,24 @@ if(isset($_GET["id"]))
 	?>
 	<table id="table">
 		<tr>
-			<td colspan="2"><h1><?php echo ($bv["tenBaiViet"]);?></h1></td>
+			<td style="border-bottom: thin gray solid;text-transform: uppercase ">
+				<a href='?cat=<?php echo($bv["maTheLoaiCon"]);?>'><font size="5px"><?php echo($bv["tenTheLoaiCon"]); ?></font></a>
+			</td>
 		</tr>
 		<tr>
-			<td colspan="2" style=" color:#999; font-size:14px">Ngày đăng bài: <?php echo ($bv["ngayDangBai"]);?></td>
+			<td><h1><?php echo ($bv["tenBaiViet"]);?></h1></td>
+		</tr>
+		<tr>
+			<td  style=" color:#999; font-size:14px">Ngày đăng bài: <?php echo ($bv["ngayDangBai"]);?></td>
 		</tr>
         <tr>
-			<td colspan="2"></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><b><i><?php echo $bv["moTa"];?></i></b></td>
 		</tr>
 		<tr>
-			<td colspan="2"><p><?php echo base64_decode($bv["noiDung"]);?></p></td>
+			<td><p><?php echo base64_decode($bv["noiDung"]);?></p></td>
 		</tr>
 		<tr>
 			<td align="right"><b>Theo</b> - <i><?php echo ($bv["tenUser"]);?></i></td>
