@@ -209,6 +209,7 @@
 	if(isset($sTen)) $urladmin .= "&sTen=$sTen";
 	if(isset($sMoTa)) $urladmin .= "&sMoTa=$sMoTa";
 	if(isset($sUser)) $urladmin .= "&sUser=$sUser";
+	if(isset($sNgayDangBai)) $urladmin .= "&sNgayDangBai=$sNgayDangBai";
 	if(isset($theLoai)) $urladmin .= "&ddlPcat=$theLoai";
 	if(isset($theLoaiCon)) $urladmin .= "&ddlCat=$theLoaiCon";
 	if(isset($tt)) $urladmin .= "&ddlTT=$tt";
