@@ -28,7 +28,7 @@
 		{
 ?>
 			<script type="text/javascript">
-				alert("Sai username, password!");
+				alert("Sai username, password (Hoặc tài khoản chưa tồn tại) !");
 			</script>
 <?php
 		}

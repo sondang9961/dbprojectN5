@@ -246,7 +246,7 @@ session_start ();
             <td rowspan="3" valign="top" ><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>"><img src="<?php echo ($tnb["anh"]); ?>" height="150px" width="150px" /></a></td>
           </tr>
           <tr>
-            <td height="30px" style="vertical-align:top; padding-top:0px; font-size:20px; font-weight:bold"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>" style="text-decoration:none; color:#000000"><?php echo $tnb["tenBaiViet"] ;?></a></td>
+            <td height="30px" style="vertical-align:top; padding-top:0px; font-size:20px; font-weight:bold"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>" style="text-decoration:none; color:#000000"><?php echo substr($tnb["tenBaiViet"],0,150)."..." ;?></a></td>
           </tr>
           <tr>
             <td valign="top" style=" vertical-align:top;padding-top:2px;text-align: justify"><a href="?id=<?php echo ($tnb["maBaiViet"]); ?>"><?php echo substr($tnb["moTa"],0,109)."...";?></a></td>

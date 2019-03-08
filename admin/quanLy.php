@@ -56,7 +56,7 @@
             <button type="button"><a href="?dsbv" id="a3">Danh sách bài viết</a></button>
     		<button type="button"><a href="?dstl" id="a3">Danh sách thể loại</a></button>
             <button type="button"><a href="?dsuser" id="a3">Danh sách người dùng</a></button>
-            <button type="button"><a href="?thongKe" id="a3">Thống kê</a></button>
+            <!-- <button type="button"><a href="?thongKe" id="a3">Thống kê</a></button> -->
             <button type="button"> <a href='../giaoDien/index.php'" id="a3">Thoát </a></button>
             <font color="#FF0000">THÔNG BÁO: Bạn có "<?php echo($notice);?>" bài viết chưa duyệt!</font>
     <?php

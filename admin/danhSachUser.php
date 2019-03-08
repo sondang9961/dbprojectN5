@@ -280,22 +280,3 @@
 </center>
 </body>
 </html>
-<script type="text/javascript">
-	function validate(){
-		var ten=document.getElementById("txtSearch").value;
-		var diaChi=document.getElementById("txtSearchDc").value;
-		var ngaySinh=document.getElementById("txtSearchNgaySinh").value;
-		var email=document.getElementById("txtSearchEmail").value;
-		var gioiTinh=document.getElementById("ddlGt").value;
-		var quyen=document.getElementById("ddlQuyen").value;
-		var tinhTrang=document.getElementById("ddlTT").value;
-
-		if(ten.length==0 || diaChi.length==0 || ngaySinh.length==0 || email.length==0 || gioiTinh.length==-1 || quyen.length==-1 || tinhTrang.length==-1)
-		{
-			alert("Bạn chưa nhập các trường để tìm kiếm!");
-		}
-		else{
-			document.getElementById("danhSachUser").submit();
-		}
-	}
-</script>

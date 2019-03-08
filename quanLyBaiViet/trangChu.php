@@ -43,7 +43,7 @@
 				?>
           <td valign="top"><table width="370px"; height="200px" >
               <tr valign="top">
-                <td colspan="2" height="60px" valign="top"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>" style="font-size:18px; font-weight:bold"><?php echo $bv["tenBaiViet"]; ?></a></td>
+                <td colspan="2" height="60px" valign="top"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>" style="font-size:18px; font-weight:bold"><?php echo substr($bv["tenBaiViet"],0,150)."..."; ?></a></td>
               </tr>
               <tr>
                 <td valign="top"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><img src="<?php echo ($bv["anh"]); ?>" height="150px" width="150px" /></a></td>

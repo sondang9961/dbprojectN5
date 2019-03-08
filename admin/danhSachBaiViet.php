@@ -23,6 +23,7 @@
 		<?php if ($_SESSION["phanQuyen"]>1) { ?>
 		<input type="search" value="<?php if(isset($_GET["sUser"])) echo $_GET["sUser"]; ?>" name="sUser" placeholder="Theo người viết bài..." />
 		<?php }?>
+		<input type="date" value="<?php if(isset($_GET["sNgayDangBai"])) echo $_GET["sNgayDangBai"]; ?>" name="sNgayDangBai"/>
 		<select name="ddlPcat" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);" onload="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
 			<?php if(isset($_GET["ddlPcat"])) $pcat = $_GET["ddlPcat"]; else $pcat = -1; ?>
 			<option value="-1">-Thể loại-</option>
@@ -87,6 +88,12 @@
 			$sql .=" And tenUser like '%$sUser%'";
 			$sqlTongBv .=" And tenUser like '%$sUser%'";
 		}
+		if (isset($_GET["sNgayDangBai"]))
+		{
+			$sNgayDangBai=$_GET["sNgayDangBai"];
+			$sql .=" And ngayDangBai like '%$sNgayDangBai%'";
+			$sqlTongBv .=" And ngayDangBai like '%$sNgayDangBai%'";
+		}
 		if (isset($_GET["ddlPcat"]) && $_GET["ddlPcat"] != -1)
 		{
 			$theLoai=$_GET["ddlPcat"];
@@ -147,7 +154,7 @@
 			<td><img src="<?php echo($bv["anh"]); ?>"width="100%"></td>
 			<td><?php echo($bv["tenTheLoai"]); ?></td>
 			<td><?php echo($bv["tenTheLoaiCon"]); ?></td>
-			<td><?php echo $bv["moTa"]; ?></td>
+			<td><?php echo substr($bv["moTa"],0,250)."..."; ?></td>
 			<td><?php echo($bv["ngayDangBai"]); ?></td>
 			<td><?php echo($bv["tenUser"]); ?></td>
 			<td>

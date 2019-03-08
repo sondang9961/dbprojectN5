@@ -61,7 +61,7 @@
     <div style="float:left">
 	<table width="655px">
 		<tr>
-			<td>Đăng Ảnh Đại Diện: </td>
+			<td>Đăng Ảnh Hiển Thị: </td>
 			<td>
 				<input type="hidden" name="txtLink" value="1">
 				<input type="file" name="fileToUpload" id="fileToUpload">
@@ -158,10 +158,6 @@
 		if(tenBv.length==0)
 		{
 			errTen.innerHTML="Không được để trống!";	
-		}
-		else if(tenBv.length>=150)
-		{
-			errTen.innerHTML="Không được quá 150 ký tự!";	
 		}
 		else
 		{
