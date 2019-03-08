@@ -96,7 +96,7 @@ if(isset($_GET["id"]))
 					<?php
 						}
 					?>			
-					 <input type="button" value="Xem" onclick="location.href='?bvl=<?php echo($bv["maBaiViet"]); ?>'" />
+					 <input type="button" value="Xem" onclick="location.href='?bvl'" />
 					 <span id="errComment" style="padding-left:290px; color:#F00"></span>
 				<?php
 				}

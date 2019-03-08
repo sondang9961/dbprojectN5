@@ -20,7 +20,8 @@
 <head>
 <meta charset="utf-8">
 <title><?php echo($tl["tenTheLoai"]); ?></title>
-	<link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG"  />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG"  />
 </head>
 
 <body>
@@ -39,12 +40,13 @@
 			</tr>
 		</table>
 	</form>
-	<form method="POST" >
+	<form method="POST" action="chinhSuaTheLoaiProcess.php" id="chinhSuaTheLoai">
 	<table>
 		<input type="hidden" name="pcat" value="<?php echo($tl["maTheLoai"]); ?>">
 		<tr>
 			<td>Tên thể loại:</td>
-			<td><input type="text" name="txtTenTheLoai" value="<?php echo $tl["tenTheLoai"]; ?>"></td>
+			<td><input type="text" name="txtTenTheLoai" id="txtTenTheLoai" value="<?php echo $tl["tenTheLoai"]; ?>"></td>
+			<td><span id="errTenTheLoai" class="err"></span></td>
 		</tr>
 		<tr>
 			<td height="120" valign="top">Ảnh:</td>
@@ -54,7 +56,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" formaction="chinhSuaTheLoaiProcess.php" value="Sửa"></td>
+			<td><input type="button" onclick="validate()" value="Sửa"></td>
 			<td><button type="button" onclick="location.href='quanLy.php?dstl'">Quay lại</button></td>
 		</tr>
 	</table>
@@ -62,3 +64,14 @@
 </center>
 </body>
 </html>
+<script type="text/javascript">
+	function validate(){
+		var dem=0;
+		var tenTheLoai=document.getElementById("txtTenTheLoai").value;
+		var errTenTheLoai=document.getElementById("errTenTheLoai");
+		if(tenTheLoai.length==0){
+			alert("Bạn chưa nhập tên thể loại!");
+		}else if(tenTheLoai.length!=0)
+			document.getElementById("chinhSuaTheLoai").submit();
+	}
+</script>

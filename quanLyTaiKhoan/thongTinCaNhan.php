@@ -54,6 +54,7 @@
           <tr>
             <td><b>Số Điện Thoại: </b></td>
             <td><input type="text" id="txtsdt" name="txtsdt" value="<?php echo($user["sdt"]); ?>"></td>
+            <td><span id="errSdt" class="err"></span></td>
           </tr>
           <tr>
             <td valign="top"><b>Địa Chỉ: </b></td>
@@ -75,13 +76,16 @@
 		//1
 		var dem=0;
 		var ten=document.getElementById("txtten").value;	
-		var email=document.getElementById("txtemail").value;	
+		var email=document.getElementById("txtemail").value;
+		var sdt=document.getElementById("txtsdt").value;	
 		//2
 		var errTen=document.getElementById("errTen");	
-		var errEmail=document.getElementById("errEmail");	
+		var errEmail=document.getElementById("errEmail");
+		var errSdt=document.getElementById("errSdt");	
 		//3
 		var regEmail=/^[a-zA-Z]+[a-zA-Z0-9_.]*@[a-zA-Z]+\.?[a-zA-Z]{2,3}\.[a-zA-Z]{2,3}$/;
 		var regTen= /^[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+\s?[a-zA-Z]+$/;
+		var regSdt=/^((09|03|07|08|05|01)+([0-9]{8})\b)$/;
 		//validate
 		//ten
 		if(ten.length==0)
@@ -114,7 +118,17 @@
 			else
 				errEmail.innerHTML="Bạn phải nhập đúng email";
 		}
-	if (dem==2)
+		//sdt
+		var kqSdt=regSdt.test(sdt);
+		if(kqSdt)
+		{
+			errSdt.innerHTML="";
+			dem++;
+		}else 
+		{
+			errSdt.innerHTML="Số điện thoại không hợp lệ!";
+		}
+	if (dem==3)
 		{
 			document.getElementById("frm").submit();	
 		}

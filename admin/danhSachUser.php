@@ -8,43 +8,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php if($_SESSION["phanQuyen"]==3) {?>Danh sách người dùng <?php } else { ?> Danh sách người viết bài và người đọc <?php } ?></title>
+<title><?php if($_SESSION["phanQuyen"]==3) {?>Danh sách người dùng <?php } else { ?> Danh sách Biên tập viên và người đọc <?php } ?></title>
 <link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG"  />
 </head>
 <body>
 <center>
-	<h1><?php if($_SESSION["phanQuyen"]==3) {?>Danh sách người dùng <?php } else { ?> Danh sách người viết bài và người đọc <?php } ?></h1>
+	<h1><?php if($_SESSION["phanQuyen"]==3) {?>Danh sách người dùng <?php } else { ?> Danh sách Biên tập viên và người đọc <?php } ?></h1>
 </center>
-	<form>
+	<form id="danhSachUser">
 	<b>Lọc: </b>
 		<input type="hidden" name="dsuser">
 		<input type="search" value="<?php if(isset($_GET["txtSearch"])) echo $_GET["txtSearch"]; ?>" name="txtSearch" placeholder="Theo tên hoặc username..." size="21" />
-		<input type="search" value="<?php if(isset($_GET["txtSearchDc"])) echo $_GET["txtSearchDc"]; ?>" name="txtSearchDc" placeholder="Theo địa chỉ..." />
+		<input type="search" value="<?php if(isset($_GET["txtSearchDc"])) echo $_GET["txtSearchDc"]; ?>" name="txtSearchDc"  placeholder="Theo địa chỉ..." />
 		<input type="search" value="<?php if(isset($_GET["txtSearchEmail"])) echo $_GET["txtSearchEmail"]; ?>" name="txtSearchEmail" placeholder="Theo Email..." size="22" />
 		<input type="date" value="<?php if(isset($_GET["txtSearchNgaySinh"])) echo $_GET["txtSearchNgaySinh"]; ?>" name="txtSearchNgaySinh" size="22" />
-		<select name="ddlGt">
+		<select name="ddlGt" id="ddlGt">
 			<?php if(isset($_GET["ddlGt"])) $gt =  $_GET["ddlGt"]; else $gt = -1; ?>
 			<option value="-1">Giới tính</option>
 			<option value="1" <?php if($gt == 1) { ?> selected="selected" <?php } ?>>Nam</option>
 			<option value="2" <?php if($gt == 2) { ?> selected="selected" <?php } ?>>Nữ</option>
 			<option value="0" <?php if($gt == 0) { ?> selected="selected" <?php } ?>>Khác</option>
 		</select>
-		<select name="ddlQuyen">
+		<select name="ddlQuyen" id="ddlQuyen">
 				<?php if(isset($_GET["ddlQuyen"])) $quyen =  $_GET["ddlQuyen"]; else $quyen = -1; ?>
 				<option value="-1">Quyền</option>
 				<option value="0" <?php if($quyen == 0) { ?> selected="selected" <?php } ?>>Người đọc</option>
-				<option value="1" <?php if($quyen == 1) { ?> selected="selected" <?php } ?>>Người viết bài</option>
+				<option value="1" <?php if($quyen == 1) { ?> selected="selected" <?php } ?>>Biên tập viên</option>
 				<?php if($_SESSION["phanQuyen"]==3) { ?>
 				<option value="2" <?php if($quyen == 2) { ?> selected="selected" <?php } ?>>Admin</option>
 				<?php }?>
 		</select>
-		<select name="ddlTT">
+		<select name="ddlTT" id="ddlTT">
 				<?php if(isset($_GET["ddlTT"])) $tt =  $_GET["ddlTT"]; else $tt = -1; ?>
 				<option value="-1">Tình trạng</option>
 				<option value="0" <?php if($tt == 0) { ?> selected="selected" <?php } ?>>Bị chặn</option>
 				<option value="1" <?php if($tt == 1) { ?> selected="selected" <?php } ?>>Hoạt động</option>
 		</select>
-		<input type="submit" value="Tim kiem" name="TimKiem"/>
+		<input type="submit" value="Tìm kiếm" name="TimKiem"/>
 		<button type="button" onclick="location.href='?dsuser'">Hiện tất cả</button>
 	</form>
 	<br>
@@ -151,12 +151,12 @@
 					if($_SESSION["phanQuyen"]==3)
 					{
 						if($user["maQuyen"]==0) echo("Người đọc"); 
-						else if($user["maQuyen"]==1) echo ("Người viết bài");
+						else if($user["maQuyen"]==1) echo ("Biên tập viên");
 						else if($user["maQuyen"]==2) echo ("Admin");
 					}else if($_SESSION["phanQuyen"]==2)
 					{
 						if($user["maQuyen"]==0) echo("Người đọc");
-						else if($user["maQuyen"]==1) echo ("Người viết bài");	
+						else if($user["maQuyen"]==1) echo ("Biên tập viên");	
 					}
 				?>
 			</td>
@@ -280,3 +280,22 @@
 </center>
 </body>
 </html>
+<script type="text/javascript">
+	function validate(){
+		var ten=document.getElementById("txtSearch").value;
+		var diaChi=document.getElementById("txtSearchDc").value;
+		var ngaySinh=document.getElementById("txtSearchNgaySinh").value;
+		var email=document.getElementById("txtSearchEmail").value;
+		var gioiTinh=document.getElementById("ddlGt").value;
+		var quyen=document.getElementById("ddlQuyen").value;
+		var tinhTrang=document.getElementById("ddlTT").value;
+
+		if(ten.length==0 || diaChi.length==0 || ngaySinh.length==0 || email.length==0 || gioiTinh.length==-1 || quyen.length==-1 || tinhTrang.length==-1)
+		{
+			alert("Bạn chưa nhập các trường để tìm kiếm!");
+		}
+		else{
+			document.getElementById("danhSachUser").submit();
+		}
+	}
+</script>

@@ -120,13 +120,14 @@
 			<tr>
 				<td>Mô Tả: </td>
 				<td><textarea cols="77" rows="3" name="txtMoTa" id="txtMoTa"></textarea></td>
-                <td><span id="errMoTa" class="err"></span></td>
+				<td><span id="errMoTa" class="err"></span></td>
 			</tr>
 			<tr>
 				<td valign="top">Nội Dung: </td>
 				<td>
 					<textarea cols="70" rows="15" name="txtNoiDung" id="txtNoiDung"></textarea>
 				</td>
+				<td><span id="errNoiDung" class="err"></span></td>
 			</tr>
 			<tr>
 				<td colspan=2 align="right">
@@ -146,12 +147,12 @@
 		var dem=0;
 		var tenBv=document.getElementById("txtTenBaiViet").value;	
 		var anh=document.getElementById("txtAnh").value;
-		var moTa=document.getElementById("txtMoTa").value;
 		var theLoai=document.getElementById("ddlTheLoaiCon").value;		
+		var moTa=document.getElementById("txtMoTa").value;
 		var errTen=document.getElementById("errTen");	
 		var errAnh=document.getElementById("errAnh");
-		var errMoTa=document.getElementById("errMoTa");
 		var errTheLoai=document.getElementById("errTheLoai");
+		var errMoTa=document.getElementById("errMoTa");
 		//validate
 		//ten
 		if(tenBv.length==0)
@@ -177,20 +178,7 @@
 			errAnh.innerHTML="";	
 			dem++;
 		}
-		//mota
-		if(moTa.length==0)
-		{
-			errMoTa.innerHTML="Không được để trống!";	
-		}
-		else if(moTa.length>=250)
-		{
-			errMoTa.innerHTML="Không được quá 250 ký tự!";	
-		}
-		else
-		{
-			errMoTa.innerHTML="";	
-			dem++;
-		}
+		//thể loại
 		if(theLoai==-1)
 		{
 			errTheLoai.innerHTML="Chưa chọn thể loại!";	
@@ -198,6 +186,16 @@
 		else
 		{
 			errTheLoai.innerHTML="";	
+			dem++;
+		}
+		//Mota
+		if(moTa.length==0)
+		{
+			errMoTa.innerHTML="Không được để trống!";	
+		}
+		else
+		{
+			errMoTa.innerHTML="";	
 			dem++;
 		}
 		if(dem==4)

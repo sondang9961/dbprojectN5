@@ -145,7 +145,7 @@
 			<td valign="top" width="800px">
 				<div style="padding-left:100px; position:fixed">
 					<h1>Thêm thể loại</h1>
-					<form  method="post" enctype="multipart/form-data">
+					<form  method="post" enctype="multipart/form-data" >
 						<table>
 							<tr>
 								<td>Đăng Ảnh Thể Loại: </td>
@@ -157,51 +157,54 @@
 							</tr>
 						</table>
 					</form>
-					<form action="themTheLoaiProcess.php" method="post" >
+					<form action="themTheLoaiProcess.php" method="post" id="theLoai" >
 						<table>
 							<tr>
 								<td>Tên thể loại:</td>
-								<td><input type="text" name="txtTenTheLoai" ></td>
+								<td><input type="text" name="txtTenTheLoai" id="txtTenTheLoai"></td>
+								<td><span id="errTenTheLoai" class="err"></span></td>
 							</tr>
 							<tr>
 								<td height="120" valign="top">Ảnh:</td>
 								<td>
-									<input type="hidden" name="txtAnh" value="<?php if(isset($_GET["anhTheLoai"])) echo($_GET["anhTheLoai"]); ?>">
+									<input type="hidden" name="txtAnh" id="txtAnh" value="<?php if(isset($_GET["anhTheLoai"])) echo($_GET["anhTheLoai"]); ?>">
 									<img src="<?php if(isset($_GET["anhTheLoai"])) echo($_GET["anhTheLoai"]);?>" height="30px">
-								</td>
+								<span id="errAnh" class="err"></span></td>
 							</tr>
 							<tr>
-								<td><input type="submit" value="Thêm"></td>
+								<td><input type="button" value="Thêm" onclick="validateTheLoai()"></td>
 							</tr>
 						</table>
 					</form>
 					<h1>Thêm thể loại con</h1>
-					<form action="themTheLoaiConProcess.php">
+					<form action="themTheLoaiConProcess.php" id="theLoaiCon">
 						<table>
 							<tr>
 								<td>Tên thể loại con:</td>
-								<td><input type="text" name="txtTenTheLoaiCon"></td>
+								<td><input type="text" name="txtTenTheLoaiCon" id="txtTenTheLoaiCon"></td>
+								<td><span id="errTenTheLoaiCon" class="err"></span></td>
 							</tr>
 							<tr>
 								<td>Thuộc Thể Loại: </td>
 								<td>
-									<select name="ddlMaTheLoai">
+									<select name="ddlTheLoai" id="ddlTheLoai">
+										<option value="-1">--Thể loại--</option>
 	<?php
 									include("../Connectdb/open.php");
 									$resulttl=mysqli_query($con,"select * from tbltheloai");
 									include("../Connectdb/close.php");
 									while($tl=mysqli_fetch_array($resulttl))
 									{
-	?>
+	?>						
 										<option value="<?php echo($tl["maTheLoai"]); ?>"><?php echo($tl["tenTheLoai"]); ?></option>
 	<?php
 									}
 	?>
-									</select>
+									</select><span id="errddlTheLoai" class="err"></span>
 								</td>
 							</tr>
 							<tr>
-								<td><input type="submit" value="Thêm"></td>
+								<td><input type="button" value="Thêm" onclick="validateTheLoaiCon()"></td>
 							</tr>
 						</table>
 					</form>
@@ -215,3 +218,53 @@
 </center>
 </body>
 </html>
+<script type="text/javascript">
+	function validateTheLoai() {
+		var dem=0;
+		var tenTheLoai=document.getElementById("txtTenTheLoai").value;
+		var anhTheLoai=document.getElementById("txtAnh").value;
+		var errTenTheLoai=document.getElementById("errTenTheLoai");
+		var errAnh=document.getElementById("errAnh");
+		//ten
+		if(tenTheLoai.length==0){
+			errTenTheLoai.innerHTML="Không được để trống!";
+		}else {
+			errTenTheLoai.innerHTML="";
+			dem++;
+		}
+		//anh
+		if(anhTheLoai.length==0){
+			errAnh.innerHTML="Chưa đăng ảnh!";
+		}else {
+			errAnh.innerHTML="";
+			dem++;
+		}
+		if (dem==2){
+			document.getElementById("theLoai").submit();
+		}
+	}
+	function validateTheLoaiCon() {
+		var demTheLoaiCon=0;
+		var tenTheLoaiCon=document.getElementById("txtTenTheLoaiCon").value;
+		var theLoai=document.getElementById("ddlTheLoai").value;
+		var errTenTheLoaiCon=document.getElementById("errTenTheLoaiCon");
+		var errddlTheLoai=document.getElementById("errddlTheLoai");
+		//ten
+		if(tenTheLoaiCon.length==0){
+			errTenTheLoaiCon.innerHTML="Không được để trống!";
+		}else {
+			errTenTheLoaiCon.innerHTML="";
+			demTheLoaiCon++;
+		}
+		//thuoc the loai
+		if(theLoai==-1){
+			errddlTheLoai.innerHTML="Chưa chọn!";
+		}else {
+			errddlTheLoai.innerHTML="";
+			demTheLoaiCon++;
+		}
+		if (demTheLoaiCon==2){
+			document.getElementById("theLoaiCon").submit();
+		}
+	}
+</script>

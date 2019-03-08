@@ -15,15 +15,15 @@
 <center>
 	<h1>Thống kê lượt xem bài đăng theo tháng</h1>
 </center>
-<form>
+<form id="thongKe">
     <table>
         <tr>
             <td><input type="hidden" name="thongKe"></td>
         </tr>
         <tr>
-            <td>Từ: <input type="date" name="ngayBatDau"  /> </td>
-            <td>Đến: <input type="date" name="ngayKetThuc" /> </td>
-            <td><input type="submit" value="Tìm" /></td>
+            <td>Từ: <input type="date" name="ngayBatDau" id="ngayBatDau"  /> </td>
+            <td>Đến: <input type="date" name="ngayKetThuc" id="ngayKetThuc" /> </td>
+            <td><input type="submit" value="Tìm" onclick="validate()" /></td>
         </tr>
         <tr align="center">
             <td><?php if(isset($_GET["ngayBatDau"])) { $ngayBatDau=$_GET["ngayBatDau"]; echo($ngayBatDau); }?></td>
@@ -69,21 +69,21 @@
                 <th>Số lượt lưu</th>         
             </tr>
     <?php
-        while ($thongKe=mysqli_fetch_array($result))
-        {
+            while ($thongKe=mysqli_fetch_array($result))
+            {
     ?>
-            <tr>
-                <td><?php echo($thongKe["maBaiViet"]); ?></td>
-                <td><?php echo($thongKe["tenBaiViet"]); ?></td>
-                <td><img src="<?php echo($thongKe["anh"]); ?>" width="70px"></td>
-                <td><?php echo($thongKe["tenTheLoai"]); ?></td>
-                <td><?php echo($thongKe["ngayDangBai"]); ?></td>
-                <td><?php echo($thongKe["tenUser"]); ?></td>
-                <td><?php echo($thongKe["luotXem"]); ?></td>
-                <td><?php echo($thongKe["luotLuu"]); ?></td>
-            </tr>
+                <tr>
+                    <td><?php echo($thongKe["maBaiViet"]); ?></td>
+                    <td><?php echo($thongKe["tenBaiViet"]); ?></td>
+                    <td><img src="<?php echo($thongKe["anh"]); ?>" width="70px"></td>
+                    <td><?php echo($thongKe["tenTheLoai"]); ?></td>
+                    <td><?php echo($thongKe["ngayDangBai"]); ?></td>
+                    <td><?php echo($thongKe["tenUser"]); ?></td>
+                    <td><?php echo($thongKe["luotXem"]); ?></td>
+                    <td><?php echo($thongKe["luotLuu"]); ?></td>
+                </tr>
     <?php
-        }
+            }
     ?>
         </table>
     <?php
@@ -163,7 +163,6 @@
                     <?php
                         if(isset($ngayBatDau)) echo("<input type='hidden' name='ngayBatDau' value='$ngayBatDau'>");
                         if(isset($ngayKetThuc)) echo("<input type='hidden' name='ngayKetThuc' value='$ngayKetThuc'>");
-                        
                     ?>
                     <select name="page">
                     <?php
@@ -186,3 +185,16 @@
     ?>
 </body>
 </html>
+<script type="text/javascript">
+    function validate(){
+        var ngayBatDau=document.getElementById("ngayBatDau").value;
+        var ngayKetThuc=document.getElementById("ngayKetThuc").value;
+        if(ngayBatDau.length==0 && ngayKetThuc.length==0)
+            {
+                alert("Bạn chưa nhập ngày bắt đầu và kết thúc!");
+            }
+        else {
+            document.getElementById("thongKe").submit();
+        }
+    }
+</script>

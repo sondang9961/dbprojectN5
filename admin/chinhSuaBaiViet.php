@@ -74,7 +74,7 @@
     <div style="float:left">
 	<table width="655px">
 		<tr>
-			<td>Đăng Ảnh Đại Diện: </td>
+			<td>Đăng Ảnh Hiển Thị: </td>
 			<td>
 				<input type="hidden" name="txtLink" value="2">
 				<input type="hidden" name="txtmaBaiViet" value="<?php echo($bv["maBaiViet"]); ?>">
@@ -132,17 +132,14 @@
 					</select>
 				</td>
 			</tr>
-			
-
 			<tr>
 				<td>Mô Tả: </td>
 				<td><textarea cols="70" rows="3" name="txtMoTa" id="txtMoTa"><?php echo $bv["moTa"]; ?></textarea></td>
-                <td><span id="errMoTa" class="err"></span></td>
+				<td><span id="errMoTa" class="err"></span></td>
 			</tr>
 			<tr>
 				<td>Nội Dung: </td>
 				<td><textarea cols="70" rows="15" name="txtNoiDung" id="txtNoiDung"><?php echo base64_decode($bv["noiDung"]); ?></textarea></td>
-			</tr>
             <tr>
             	<td>Tình trạng:</td>
                 <td><input type="radio" name="rdbTinhTrang" value="0" <?php if($bv["tinhTrangBv"]==0){?> checked="checked" <?php } ?>>Chưa duyệt
@@ -168,8 +165,8 @@
 	{
 		var dem=0;
 		var tenBv=document.getElementById("txtTenBaiViet").value;	
-		var anh=document.getElementById("txtAnh").value;
-		var moTa=document.getElementById("txtMoTa").value;		
+		var anh=document.getElementById("txtAnh").value;	
+		var moTa=document.getElementById("txtMoTa").value;
 		var errTen=document.getElementById("errTen");	
 		var errAnh=document.getElementById("errAnh");
 		var errMoTa=document.getElementById("errMoTa");
@@ -178,10 +175,6 @@
 		if(tenBv.length==0)
 		{
 			errTen.innerHTML="Không được để trống!";	
-		}
-		else if(tenBv.length>=150)
-		{
-			errTen.innerHTML="Không được quá 150 ký tự!";	
 		}
 		else
 		{
@@ -198,14 +191,10 @@
 			errAnh.innerHTML="";	
 			dem++;
 		}
-		//mota
+		//moTa
 		if(moTa.length==0)
 		{
 			errMoTa.innerHTML="Không được để trống!";	
-		}
-		else if(moTa.length>=250)
-		{
-			errMoTa.innerHTML="Không được quá 250 ký tự!";	
 		}
 		else
 		{
