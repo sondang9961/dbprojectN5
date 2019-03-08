@@ -82,7 +82,7 @@
 				<td>Tình trạng:</td>
 				<td>
 					<input type="radio" name="TinhTrang" <?php if($user["tinhTrangUser"]==0){ ?> checked="checked" <?php } ?> value="0" /> Chặn
-                    <input type="radio" name="TinhTrang" <?php if($user["tinhTrangUser"]==1){ ?> checked="checked" <?php } ?> value="0" /> Hoạt động
+                    <input type="radio" name="TinhTrang" <?php if($user["tinhTrangUser"]==1){ ?> checked="checked" <?php } ?> value="1" /> Hoạt động
 				</td>
 			</tr>
 			<tr>
