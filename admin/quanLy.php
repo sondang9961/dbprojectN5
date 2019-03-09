@@ -11,7 +11,7 @@
 	if(isset($_GET["tbv"])) echo("Thêm bài viết");
 	else if(isset($_GET["dsbv"])) echo("Danh sách bài viết");
 	else if(isset($_GET["dstl"])) echo("Danh sách thể loại");
-	else if(isset($_GET["dsuser"])) echo("Danh sách người dùng");
+	else if(isset($_GET["dsuser"])){ if($_SESSION["phanQuyen"]==2)  {echo("Danh sách biên tập viên và người đọc");} else echo("Danh sách người dùng");} 
 	else if(isset($_GET["thongKe"])) echo("Thống kê");
 ?>
 </title>
@@ -44,7 +44,7 @@
             <button type="button"><a href="?tbv" id="a3" >Thêm bài viết</a></button>
             <button type="button"><a href="?dsbv" id="a3">Danh sách bài viết</a></button>
     		<button type="button"><a href="?dstl" id="a3">Danh sách thể loại</a></button>
-            <button type="button"><a href="?dsuser" id="a3">Danh sách người viết bài và người đọc</a></button>
+            <button type="button"><a href="?dsuser" id="a3">Danh sách biên tập viên và người đọc</a></button>
             <button type="button"> <a href='../giaoDien/index.php'" id="a3">Thoát </a></button>
             <font color="#FF0000">THÔNG BÁO: Bạn có "<?php echo($notice);?>" bài viết chưa duyệt!</font>
     <?php

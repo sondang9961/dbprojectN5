@@ -21,7 +21,7 @@
 		<input type="search" value="<?php if(isset($_GET["sTen"])) echo $_GET["sTen"]; ?>" name="sTen" placeholder="Theo tên bài viết..." size="30" />
 		<input type="search" value="<?php if(isset($_GET["sMoTa"])) echo $_GET["sMoTa"]; ?>" name="sMoTa" placeholder="Theo mô tả..." />
 		<?php if ($_SESSION["phanQuyen"]>1) { ?>
-		<input type="search" value="<?php if(isset($_GET["sUser"])) echo $_GET["sUser"]; ?>" name="sUser" placeholder="Theo người viết bài..." />
+		<input type="search" value="<?php if(isset($_GET["sUser"])) echo $_GET["sUser"]; ?>" name="sUser" placeholder="Theo biên tập viên..." />
 		<?php }?>
 		<input type="date" value="<?php if(isset($_GET["sNgayDangBai"])) echo $_GET["sNgayDangBai"]; ?>" name="sNgayDangBai"/>
 		<select name="ddlPcat" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);" onload="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
@@ -59,12 +59,12 @@
 		if($_SESSION["phanQuyen"]==1)
 		{
 			$sqlTongBv="select count(*) as tongBv from (select maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, b.maUser, ngayDangBai, tinhTrangBv, tenUser from tbluser inner join (select a.maTheLoai, a.maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tbltheloai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, maUser, ngayDangBai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser)c where maUser=$maUser";
-			$sql="select * from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where tbluser.maUser=$maUser";
+			$sql="select * from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where tbluser.maUser=$maUser";
 		}
 		else
 		{
 			$sqlTongBv="select count(*) as tongBv from (select maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, b.maUser, ngayDangBai, tinhTrangBv, tenUser from tbluser inner join (select a.maTheLoai, a.maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tbltheloai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, maUser, ngayDangBai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser)c where 1=1";
-			$sql="select * from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where 1=1";	
+			$sql="select * from tbluser inner join (select a.maTheLoai, maTheLoaiCon, tenTheLoai,tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tbltheloai inner join (select maTheLoai, tblBaiViet.maTheloaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maUser, ngayDangBai, tinhTrangBv, luotXem, luotLuu from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai)b on tbluser.maUser = b.maUser where 1=1";	
 		}
 		if(isset($_GET["sTen"]) && !empty($_GET["sTen"]))
 		{
@@ -137,10 +137,12 @@
 			<th>Ảnh</th>
 			<th>Thể Loại</th>
 			<th>Thể Loại Con</th>
-			<th width="35%">Mô Tả</th>
+			<th width="33%">Mô Tả</th>
 			<th>Ngày Đăng Bài</th>
-			<th>Người Viết Bài</th>
+			<th>Biên tập viên</th>
 			<th>Tình Trạng</th>
+			<th>Lượt xem</th>
+			<th>Lượt lưu</th>
 			<th colspan="3">Chức Năng</th>
 		</tr>
    <?php
@@ -180,7 +182,10 @@
 					?>
 					</table>
 				</form>
-			</td></a>
+			</td>
+			<td align="center"><?php echo($bv["luotXem"]); ?></td>
+			<td align="center"><?php echo($bv["luotLuu"]); ?></td>
+			</a>
 			<th><button type="button" onClick="window.open('../giaoDien/index.php?id=<?php echo($bv["maBaiViet"]); ?>','_blank')" style="height:51px">Xem Nội Dung</button></th>
 			<th>
 				<?php if ($_SESSION["phanQuyen"]==1 && $bv["tinhTrangBv"]==1) { ?>
@@ -209,6 +214,7 @@
 	if(isset($sTen)) $urladmin .= "&sTen=$sTen";
 	if(isset($sMoTa)) $urladmin .= "&sMoTa=$sMoTa";
 	if(isset($sUser)) $urladmin .= "&sUser=$sUser";
+	if(isset($sNgayDangBai)) $urladmin .= "&sNgayDangBai=$sNgayDangBai";
 	if(isset($theLoai)) $urladmin .= "&ddlPcat=$theLoai";
 	if(isset($theLoaiCon)) $urladmin .= "&ddlCat=$theLoaiCon";
 	if(isset($tt)) $urladmin .= "&ddlTT=$tt";
@@ -285,6 +291,7 @@
 						if(isset($sTen)) echo("<input type='hidden' name='sTen' value='$sTen'>");
 						if(isset($sMoTa)) echo("<input type='hidden' name='sMoTa' value='$sMoTa'>");
 						if(isset($sUser)) echo("<input type='hidden' name='sUser' value='$sUser'>");
+						if(isset($sNgayDangBai)) echo("<input type='hidden' name='sNgayDangBai' value='$sNgayDangBai'>");
 						if(isset($theLoai)) echo("<input type='hidden' name='ddlPcat' value='$theLoai'>");
 						if(isset($theLoaiCon)) echo("<input type='hidden' name='ddlCat' value='$theLoaiCon'>");
 						if(isset($tt)) echo("<input type='hidden' name='ddlTT' value='$tt'>");

@@ -20,13 +20,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cập Nhật Thông Tin Cá Nhân</title>
+<title>Cập Nhật Thông Tin Người dùng</title>
 <link rel="shortcut icon" href="/dbprojectN5/Images/favicon.JPG" />
 </head>
 
 <body>
 <center>
-	<h1>Cập Nhật Thông Tin Cá Nhân</h1>
+	<h1>Cập Nhật Thông Tin Người dùng</h1>
 	<form action="capNhatThongTinUserProcess.php" method="post">
 		<table>
 			<tr>
@@ -66,7 +66,7 @@
 				<td>
 					<select name="txtquyen">
 						<option value="0" <?php if($user["maQuyen"]==0) { ?> selected="selected" <?php } ?>>Người đọc</option>
-						<option value="1" <?php if($user["maQuyen"]==1) { ?> selected="selected" <?php } ?>>Người viết bài</option>
+						<option value="1" <?php if($user["maQuyen"]==1) { ?> selected="selected" <?php } ?>>Biên tập viên</option>
 						 <?php
 						if($_SESSION["phanQuyen"]==3)
 						{

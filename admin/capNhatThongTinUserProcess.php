@@ -23,7 +23,7 @@
 		mysqli_query($con,"update tbluser set email='$email', tenUser='$ten', gioiTinh=$gioiTinh, sdt='$sdt', diaChi='$diaChi', maQuyen=$quyen, tinhTrangUser=$tinhTrangUser where maUser=$maUser");;
 		include ("../Connectdb/close.php");
 		$urladmin=$_SESSION["urladmin"];
-		header("Location:quanLy.php?dsuser$urladmin");
+		header("Location:capNhatThongTinUser.php?id=$maUser");
 	}
 	else if (isset($_POST["TinhTrang"]) && isset($_POST["txtmauser"]))
 	{

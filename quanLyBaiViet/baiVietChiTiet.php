@@ -185,7 +185,7 @@ if(isset($_GET["id"]))
 		var errComment=document.getElementById("errComment");
 		if(comment.length==0)
 		{
-			errComment.innerHTML="Bạn phải nhập bình luận";
+			alert("Bạn chưa nhập bình luận!");
 		}else
 		{
 			errComment.innerHTML="";

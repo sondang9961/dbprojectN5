@@ -12,7 +12,7 @@
 	$resultTongBvl=mysqli_query($con,"select count(*) as tongBvl from tblbaivietduocluu where maUser=$maUser ");
 	$rowTongBvl=mysqli_fetch_array($resultTongBvl);
 	$tongBvl=$rowTongBvl["tongBvl"];
-	$soBvl1trang=4;
+	$soBvl1trang=3;
 	$tongSoTrang=ceil($tongBvl/$soBvl1trang);
 	$start=0;
 	$page=1;

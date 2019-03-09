@@ -19,7 +19,7 @@
 		echo "ok";
 		include("../Connectdb/close.php");
 		$urladmin=$_SESSION["urladmin"];
-		header("Location:quanLy.php?dsbv$urladmin#$maBaiViet");
+		header("Location:chinhSuaBaiViet.php?id=$maBaiViet");
 	}
 	else if (isset($_POST["rdbTinhTrang"])&&isset($_POST["txtmaBaiViet"]))
 	{
