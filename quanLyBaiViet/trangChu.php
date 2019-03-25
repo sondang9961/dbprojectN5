@@ -36,7 +36,7 @@
           <?php
 				$dem=0;
 				$maTheLoai=$theLoai["maTheLoai"];
-				$result=mysqli_query($con,"select * from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, tinhTrangBv, ngayDangBai from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where a.maTheLoai = $maTheLoai and tinhTrangBv=1 order by maBaiViet desc limit 4");
+				$result=mysqli_query($con,"select * from tblTheLoai inner join (select tblTheLoaiCon.maTheLoaiCon, tenTheLoaiCon, maBaiViet, tenBaiViet, anh, moTa, maTheLoai, tinhTrangBv, ngayDangBai from tblBaiViet inner join tblTheLoaiCon on tblBaiViet.maTheLoaiCon = tblTheLoaiCon.maTheLoaiCon)a on tblTheLoai.maTheLoai = a.maTheLoai where a.maTheLoai = $maTheLoai and tinhTrangBv=1 order by maBaiViet desc limit 6");
 				while ($bv=mysqli_fetch_array($result))
 				{
 					$dem++;
@@ -63,7 +63,7 @@
               </tr>
             </table></td>
           <?php
-					if($dem%2==0)
+					if($dem%3==0)
 					{
 				?>
         </tr>

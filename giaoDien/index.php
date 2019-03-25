@@ -177,17 +177,21 @@ session_start ();
     </div>
 <?php
 	}
-	if(!isset($_GET["dn"]) && !isset($_GET["dk"]) && !isset($_GET["llmk"]))
-	{
-?>
-<div id="mainContent">
-<?php
-	 if (isset($_GET["id"]))
+	if (isset($_GET["id"]))
 		{
 			$maBv=$_GET["id"];
-			include ("../quanLyBaiViet/baiVietChiTiet.php");
+	?>
+			<div id="baiVietChiTiet">
+				<?php include ("../quanLyBaiViet/baiVietChiTiet.php");?>
+			</div>
+	<?php
 		}
-	 else if (isset($_GET["ttcn"]))
+	if(!isset($_GET["dn"]) && !isset($_GET["dk"]) && !isset($_GET["llmk"]) && !isset($_GET["id"]))
+	{
+	?>
+<div id="mainContent">
+<?php
+	 if (isset($_GET["ttcn"]))
 		{
 			$ttcn=$_GET["ttcn"];
 			?>
@@ -224,7 +228,7 @@ session_start ();
 	}
 ?>
 <?php
-	 if (!isset($_GET["ttcn"]) && !isset($_GET["dn"]) && !isset($_GET["dk"]) && !isset($_GET["dmk"])&& !isset($_GET["hdbl"]) && !isset($_GET["bvl"]) && !isset($_GET["llmk"]))
+	 if (isset($_GET["id"]))
 	{
 ?>
 <div id="rightBanner">

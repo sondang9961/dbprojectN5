@@ -142,32 +142,29 @@ if(isset($_GET["id"]))
         </div>
 		<?php
 		$maTheLoaiCon=$bv["maTheLoaiCon"];
-		$result=mysqli_query($con,"select * from tblBaiViet where maTheLoaiCon=$maTheLoaiCon and tinhTrangBv=1 order by maBaiViet desc limit 5");
+		$result=mysqli_query($con,"select * from tblBaiViet where maTheLoaiCon=$maTheLoaiCon and tinhTrangBv=1 order by maBaiViet desc limit 4");
 		?>
         <div id="noiDungTinLq">
 		<table>
+			<tr>
 			<?php
 				while ($tinLq=mysqli_fetch_array($result))
 				{
 			?>
-		<tr>
-			<td>	
+			<td valign="top">	
 				<table>
 					<tr>
-						<td rowspan="3" valign="top" ><a href="?id=<?php echo ($tinLq["maBaiViet"]); ?>"><img src="<?php echo ($tinLq["anh"]); ?>" height="150px" width="150px" /></a></td>
+						<td valign="top"><a href="?id=<?php echo ($tinLq["maBaiViet"]); ?>"><img src="<?php echo ($tinLq["anh"]); ?>" height="190px" width="190px" /></a></td>
 					</tr>
 					<tr>
-						<td height="30px" style="vertical-align:top; padding-top:0px; font-size:25px; font-weight:bold"><a href="?id=<?php echo ($tinLq["maBaiViet"]); ?>" style="text-decoration:none; color:#000000"><?php echo $tinLq["tenBaiViet"] ;?></a></td>
-					</tr>
-					<tr>
-						<td valign="top" style=" vertical-align:top;padding-top:2px"><?php echo $tinLq["moTa"] ;?></td>
+						<td valign="top" width="190px" style=" vertical-align:top;padding-top:2px;text-align: justify;"><b><a href="?id=<?php echo ($tinLq["maBaiViet"]); ?>"><?php echo $tinLq["tenBaiViet"] ;?></a></b></td>
 					</tr>
 				</table>
-			</td>
-		</tr>		
+			</td>		
 			<?php
 				}
 			?>
+			</tr>
 		</table>
         </div>
 	</div>

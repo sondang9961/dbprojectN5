@@ -142,6 +142,15 @@ ul .li1:hover {
 }
 #mainContent {
 	height: auto;
+	width: 89%;
+	float: left;
+	margin-left: 75px;
+	margin-top: -5px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+#baiVietChiTiet {
+	height: auto;
 	width: 60%;
 	float: left;
 	margin-left: 75px;
@@ -150,7 +159,7 @@ ul .li1:hover {
 	overflow: hidden;
 }
 #tinLq { height:390px; width:100.3%; background-color:#FFFFFF; float:left}
-#noiDungTinLq {height:330px; overflow:auto}
+#noiDungTinLq {height:330px}
 #table { border-bottom: #CCCCCC solid 1px}
 #table1 { margin-top:10px;  border-bottom:#CCCCCC solid 1px; width:800px; background-color:#8080804f; padding-left:20px;    }
 #comment { height:40px; margin-top:10px;padding-left:30px;}

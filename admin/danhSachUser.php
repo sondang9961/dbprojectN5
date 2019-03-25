@@ -62,7 +62,7 @@
 	if(isset($_GET["txtSearch"]) && !empty($_GET["txtSearch"]))
 	{
 		$tenUserSearch=$_GET["txtSearch"];
-		$sql .=" And (tenUser Searchlike '%$tenUserSearch%' or username='$tenUserSearch') ";
+		$sql .=" And (tenUser like '%$tenUserSearch%' or username='$tenUserSearch') ";
 		$sqlTongUser .=" And (tenUser like '%$tenUserSearch%' or username='$tenUserSearch') ";		
 	} if (isset($_GET["txtSearchDc"]) && !empty($_GET["txtSearchDc"]))
 	{
