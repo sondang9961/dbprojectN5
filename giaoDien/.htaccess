@@ -1,0 +1,4 @@
+Options All -Indexes
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule ([0-9]+) index.php?id=$1

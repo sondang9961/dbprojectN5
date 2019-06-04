@@ -74,6 +74,14 @@
     <?php
 	while ($bv=mysqli_fetch_array($result))
 		{
+			$tieu_de_url = substr($bv["tenBaiViet"],0,100);
+			$tieu_de_url = str_replace("'",'',$tieu_de_url);
+        	$tieu_de_url = str_replace('"','',$tieu_de_url);
+        	$tieu_de_url = str_replace('?','',$tieu_de_url);
+        	$tieu_de_url = str_replace('!','',$tieu_de_url);
+        	$tieu_de_url = str_replace('/','_',$tieu_de_url);
+        	$tieu_de_url = str_replace(':','_',$tieu_de_url);
+        	$tieu_de_url = str_replace(' ','_',$tieu_de_url);
 	?>
 		<tr>
 			<td>
@@ -86,10 +94,10 @@
 			<td>	
 				<table style=" #666666 solid 1px">
 					<tr>
-						<td rowspan="4" valign="top" ><a href="?id=<?php echo ($bv["maBaiViet"]); ?>"><img src="<?php echo ($bv["anh"]); ?>" height="150px" width="150px" /></a></td>
+						<td rowspan="4" valign="top" ><a href="<?php echo ($bv["maBaiViet"]); ?>_<?php echo ($tieu_de_url); ?>"><img src="<?php echo ($bv["anh"]); ?>" height="150px" width="150px" /></a></td>
 					</tr>
 					<tr>
-						<td height="30px" style="vertical-align:top; font-size:25px; font-weight:bold"><a href="?id=<?php echo ($bv["maBaiViet"]); ?>" style="text-decoration:none; color:#000000"><?php echo $bv["tenBaiViet"] ;?></a></td>
+						<td height="30px" style="vertical-align:top; font-size:25px; font-weight:bold"><a href="<?php echo ($bv["maBaiViet"]); ?>_<?php echo ($tieu_de_url); ?>" style="text-decoration:none; color:#000000"><?php echo $bv["tenBaiViet"] ;?></a></td>
 					</tr>
 					<tr>
 						<td valign="top" style=" vertical-align:top;padding-top:2px"><?php echo $bv["moTa"] ;?></td>
