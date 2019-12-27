@@ -152,7 +152,34 @@ session_start ();
          </ul>
      </div>
 <?php
+	if (isset($_GET["ttcn"]))
+		{
+			$ttcn=$_GET["ttcn"];
+			?>
+            	<div id="ttcn">
+			<?php
+				include ("../quanLyTaiKhoan/thongTinCaNhan.php");
+			?>
+                </div>
+			<?php
+		}
+	else if (isset($_GET["dmk"]))
+		{
+			$dmk=$_GET["dmk"];
+			include ("../quanLyTaiKhoan/doiMatKhau.php");
+		}
+	else if (isset($_GET["bvl"]))
+		{
+			$bvl=$_GET["bvl"];
+			include ("../quanLyBaiViet/xemBvDaLuu.php");
+		}
+	else if (isset($_GET["hdbl"]))
+		{
+			$hdbl=$_GET["hdbl"];
+			include ("../quanLyBaiViet/hoatDongBinhLuan.php");
+		}
 	}
+
 	if (isset($_GET["dn"]))
 	{
 ?>
@@ -186,44 +213,19 @@ session_start ();
 			</div>
 	<?php
 		}
-	if(!isset($_GET["dn"]) && !isset($_GET["dk"]) && !isset($_GET["llmk"]) && !isset($_GET["id"]))
+	if(!isset($_GET["dn"]) && !isset($_GET["dk"]) && !isset($_GET["llmk"]) && !isset($_GET["id"]) && !isset($_GET["ttcn"]) && !isset($_GET["dmk"]) && !isset($_GET["bvl"]) && !isset($_GET["hdbl"]))
 	{
 	?>
-<div id="mainContent">
-<?php
-	 if (isset($_GET["ttcn"]))
-		{
-			$ttcn=$_GET["ttcn"];
-			?>
-            	<div id="ttcn">
-			<?php
-				include ("../quanLyTaiKhoan/thongTinCaNhan.php");
-			?>
-                </div>
-			<?php
-		}
-	else if (isset($_GET["dmk"]))
-		{
-			$dmk=$_GET["dmk"];
-			include ("../quanLyTaiKhoan/doiMatKhau.php");
-		}
-	else if (isset($_GET["bvl"]))
-		{
-			$bvl=$_GET["bvl"];
-			include ("../quanLyBaiViet/xemBvDaLuu.php");
-		}
-	else if (isset($_GET["hdbl"]))
-		{
-			$hdbl=$_GET["hdbl"];
-			include ("../quanLyBaiViet/hoatDongBinhLuan.php");
-		}
-	else if (isset($_GET["pcat"])||isset($_GET["cat"])||isset($_GET["txtSearch"]))
-		{
-			include ("../quanLyBaiViet/baiViet.php");
-		}
-	else include ("../quanLyBaiViet/trangChu.php");
-?>
-</div>
+		<div id="mainContent">
+		<?php
+			
+			 if (isset($_GET["pcat"])||isset($_GET["cat"])||isset($_GET["txtSearch"]))
+				{
+					include ("../quanLyBaiViet/baiViet.php");
+				}
+			else include ("../quanLyBaiViet/trangChu.php");
+		?>
+		</div>
 <?php
 	}
 ?>

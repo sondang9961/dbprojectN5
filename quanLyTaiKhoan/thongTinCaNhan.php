@@ -25,12 +25,12 @@
 <?php
 	}
 ?>
-    <h1>Thông tin cá nhân</h1>
+    <center><h1>Thông tin cá nhân</h1></center>
     <div id="ttcn">
         <form method="post" id="frm" action='../quanLyTaiKhoan/capNhatThongTinProcess.php'>
         <table>
           <tr>
-            <td><b>Tên hiển thị: </b></td>
+            <td width="150px"><b>Tên hiển thị: </b></td>
             <td><input type="text" id="txtten" name="txtten"value="<?php echo($user["tenUser"]); ?>"></td>
             <td width="50%"><span id="errTen" class="err"></span></td>
           </tr>

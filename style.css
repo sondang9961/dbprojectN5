@@ -145,9 +145,10 @@ ul .li1:hover {
 	width: 89%;
 	float: left;
 	margin-left: 75px;
-	margin-top: -5px;
+	margin-top: -3px;
 	background-color: #FFFFFF;
 	overflow: hidden;
+	padding-bottom: 6.8%
 }
 #baiVietChiTiet {
 	height: auto;
@@ -173,21 +174,44 @@ ul .li1:hover {
 	margin-left: 2%
 }
 #ttcn { 
-	float:right;
-	margin-right:2%;
+	float:left;
+	margin-left:2%;
+	background-color: white;
+	padding-left: 2%;
+}
+#dmk {
+	float:left;
+	margin-left:2%;
+	background-color: white;
+	padding-left: 2%;
+	width: 49.5%;
 }
 #QLTTCN {
 	width: 18%;
 	background-color: #FFF;
 	float: left;
 	margin-left:70px;
-	margin-top:-4px;
 	margin-bottom: 5.75%;
 }
 #dk {margin-bottom: 2.5%; float:right;margin-right:25.5%;}
 #dn {margin-bottom: 7.35%; float:right; margin-right:25%;}
 #llmk {margin-bottom: 7.85%; float:right; margin-right:19.5%;}
-#bvl {margin-bottom: 7.85%}
+#bvl {
+	margin-bottom: 7.85%;
+	float:left;
+	margin-left:2%;
+	background-color: white;
+	padding-left: 2%;
+	width: 70% 
+}
+#hdbl {
+	margin-bottom: 7.85%;
+	float:left;
+	margin-left:2%;
+	background-color: white;
+	padding-left: 2%;
+	width: 70% 
+}
 .ul1{
 	height:200px
 }
@@ -214,9 +238,9 @@ ul .li1:hover {
 	background-color: #333333;
 	text-align: center;
 	color: #FFFFFF;
-	padding-top: 15px;
+	padding-top: 20px;
 	top: 10px;
-	float: left
+	float: left;
 }
 .err {
 	color:#F00;

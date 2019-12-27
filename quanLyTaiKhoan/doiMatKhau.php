@@ -20,7 +20,7 @@
 ?>
 <center>
 <div id="dmk">
-	<h1>Đổi mật khẩu</h1>
+	<center><h1>Đổi mật khẩu</h1></center>
 	<form method="post" id="frm" action="../quanLyTaiKhoan/doiMatKhauProcess.php">
 	<table>
 		<tr>
