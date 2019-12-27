@@ -144,7 +144,6 @@
 		{
 		for ($i=$startpage; $i <= $endpage; $i++) //Thì vòng lặp hiện đường link đổi trang theo dạng nút sẽ theo 2 điểm xác định ở trên
 			{
-			$i = $startpage;
 			$pageloop = "?page=$i";
 			$pageloop .= $url;
 	?>
