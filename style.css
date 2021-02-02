@@ -24,6 +24,17 @@ a {
 #a6 {font-size:22px; text-decoration:none;; width:120px; font-weight:bold}
 #a7 {color:black;text-decoration:underline; background-color:light-gray; width:120px; font-weight:bold}
 #a8 { padding-left:10px}
+#a9 {
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFFFFF;
+	margin-right: 20px;
+}
+#a9:hover{ color: cyan; }
+#a10{
+	color:#FFF; border-right:1px white solid; padding-right:8px
+}
+#a10:hover{ color: cyan; }
 #main {
 	height: auto;
 	width: 100%;
@@ -142,13 +153,15 @@ ul .li1:hover {
 }
 #mainContent {
 	height: auto;
-	width: 89%;
-	float: left;
-	margin-left: 75px;
-	margin-top: -3px;
-	background-color: #FFFFFF;
-	overflow: hidden;
-	padding-bottom: 6.8%
+    width: 82%;
+    float: left;
+    margin-left: 75px;
+    margin-top: -3px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    padding-bottom: 6.8%;
+    margin-bottom: 9.5%;
+    padding-left: 7%;
 }
 #baiVietChiTiet {
 	height: auto;

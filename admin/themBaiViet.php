@@ -69,8 +69,8 @@
 	 			<b><i style="color:#F00">*Lưu ý: Đăng ảnh trước khi viết hay chỉnh sửa nội dung*</i></b>
 	 		</td>
 	 	</tr>
-	 </table>
-     </div>
+	</table>
+    </div>
 	</form>
 	<form action="themBaiVietProcess.php" id="frm" method="post" enctype="multipart/form-data">
 		<table>

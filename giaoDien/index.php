@@ -54,12 +54,12 @@ session_start ();
    		if($_SESSION["phanQuyen"]>0)
 		{
 		?>
-			<a href="../admin/quanLy.php?dsbv" style="color:#FFF; border-right:1px white solid; padding-right:8px">Trang quản trị</a>	
+			<a href="../admin/quanLy.php?dsbv" id="a10">Trang quản trị</a>	
 		<?php
         }
 		?>
     	<b>Welcome</b> <?php if($_SESSION["phanQuyen"]==1) echo "Biên tập viên: "; else if($_SESSION["phanQuyen"]==2) echo "Admin: "; 	else if($_SESSION["phanQuyen"]==3) echo "Super-Admin: "; else echo"User: ";?>
-        <a href="?ttcn=<?php echo($_SESSION["username"]);?>" style=" text-decoration:underline; color:#FFFFFF">
+        <a href="?ttcn=<?php echo($_SESSION["username"]);?>" style=" text-decoration:underline; color:#FFFFFF; border-right: 1px solid white; padding-right: 3px ">
 	<?php 
 		$maUser=$_SESSION["idUser"];
 		$resultTenUser=mysqli_query($con,"select tenUser from tbluser where maUser=$maUser");
@@ -70,13 +70,13 @@ session_start ();
 		$tenUser=mysqli_fetch_array($resultTenUser);
 		echo ($tenUser["tenUser"]);
 	?>!</a>
-        <a href="../quanLyTaiKhoan/dangXuatProcess.php" id="a1" style="padding-right:5px">Đăng Xuất</a>
+        <a href="../quanLyTaiKhoan/dangXuatProcess.php" id="a9" style="padding-right:5px">Đăng Xuất</a>
     <?php
 	}
 	else
 	{
 	?>
-		<a href="?dn" id="a1">Đăng nhập</a> <a href="?dk" id="a1">Đăng ký</a>
+		<a href="?dn" id="a9">Đăng nhập</a> <a href="?dk" id="a9">Đăng ký</a>
     <?php
 	}
 	?>
